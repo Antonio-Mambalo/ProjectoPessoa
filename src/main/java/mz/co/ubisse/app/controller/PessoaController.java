@@ -40,7 +40,7 @@ public class PessoaController {
 	
 	@PostMapping(path = "/pessoas/salvar")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Pessoa salvar(Pessoa pessoa) {
+	public Pessoa salvar(@RequestBody Pessoa pessoa) {
 		return repository.save(pessoa);
 	}
 	

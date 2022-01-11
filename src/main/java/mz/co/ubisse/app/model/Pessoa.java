@@ -1,11 +1,15 @@
 package mz.co.ubisse.app.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table
@@ -24,7 +28,8 @@ public class Pessoa {
 	@Column(name = "telefone", length = 15)
 	private String telefone;
 	@Column(name = "data_de_nascimento")
-	private String dataNascimento;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate dataNascimento;
 	@Column(name = "status")
 	private boolean status;
 
@@ -68,11 +73,13 @@ public class Pessoa {
 		this.telefone = telefone;
 	}
 
-	public String getDataNascimento() {
+	
+
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(String dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
