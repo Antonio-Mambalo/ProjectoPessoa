@@ -1,5 +1,6 @@
 package mz.co.ubisse.app.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,11 @@ public class PessoaController {
 			.map(record -> ResponseEntity.ok().body(record ))
 			.orElse(ResponseEntity.notFound().build());
 	
+	}
+	
+	@GetMapping(path = "/pessoas")
+	public List<Pessoa> listar(){
+		return repository.findAll();
 	}
 	
 	@PostMapping(path = "/pessoas/salvar")
